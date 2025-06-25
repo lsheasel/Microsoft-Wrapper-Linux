@@ -10,12 +10,12 @@
   "homepage": "https://shease.de",
   "license": "MIT",
   "scripts": {
-    "start": "electron .",
+    "start": "electron . --disable-gpu-vsync --disable-gpu",
     "dist": "electron-builder"
   },
   "devDependencies": {
     "electron": "^37.0.0",
-    "electron-builder": "^24.15.2"
+    "electron-builder": "^24.6.0"
   },
   "build": {
     "appId": "de.shease.microsoftprogramme",
@@ -25,9 +25,15 @@
     ],
     "asar": true,
     "linux": {
-      "target": ["AppImage", "deb"],
+      "target": [
+        "AppImage",
+        "deb"
+      ],
       "icon": "icon.png",
       "category": "Office"
     }
+  },
+  "dependencies": {
+    "discord-rpc": "^4.0.1"
   }
 }

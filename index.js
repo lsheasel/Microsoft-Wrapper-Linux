@@ -1,7 +1,11 @@
 const { app, BrowserWindow, Menu } = require('electron');
 
+app.commandLine.appendSwitch('disable-gpu'); // GPU deaktivieren (Linux hilft das oft)
+
+let win;
+
 function createWindow() {
-  const win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 1200,
     height: 800,
     webPreferences: {
@@ -10,37 +14,50 @@ function createWindow() {
     }
   });
 
+  // User-Agent anpassen, damit Teams besser läuft
+  win.webContents.setUserAgent(
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+  );
+
   win.loadURL('https://m365.cloud.microsoft/apps');
 
-  // 🔁 Neue Fenster blockieren → URL im selben Fenster laden
+  // Neue Fenster blockieren → URL im selben Fenster laden
   win.webContents.setWindowOpenHandler(({ url }) => {
     win.loadURL(url);
     return { action: 'deny' };
   });
 
-  // ⬅️➡️ Eigenes Menü mit Zurück/Vorwärts
+  // Menü mit Zurück/Vorwärts und Entwickler-Tools Shortcut
   const customMenu = Menu.buildFromTemplate([
     {
       label: '🡸 ',
       click: () => {
-        if (win.webContents.canGoBack()) {
-          win.webContents.goBack();
-        }
+        if (win.webContents.canGoBack()) win.webContents.goBack();
       }
     },
     {
       label: ' 🡺',
       click: () => {
-        if (win.webContents.canGoForward()) {
-          win.webContents.goForward();
-        }
+        if (win.webContents.canGoForward()) win.webContents.goForward();
       }
+    },
+    {
+      label: 'Entwickler',
+      submenu: [
+        {
+          label: 'Toggle DevTools',
+          accelerator: process.platform === 'darwin' ? 'Cmd+Alt+I' : 'Ctrl+Shift+I',
+          click: () => {
+            win.webContents.toggleDevTools();
+          }
+        }
+      ]
     }
   ]);
 
-  Menu.setApplicationMenu(customMenu); // setzt dein eigenes Menü
+  Menu.setApplicationMenu(customMenu);
 
-  // Optional: Alt+←/→ auch als Shortcut
+  // Alt+←/→ Shortcuts für Navigation
   win.webContents.on('before-input-event', (event, input) => {
     if (input.type === 'keyDown' && input.key === 'ArrowLeft' && input.alt) {
       if (win.webContents.canGoBack()) win.webContents.goBack();
