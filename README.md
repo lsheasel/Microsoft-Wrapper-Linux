@@ -24,13 +24,13 @@ Die App lädt die Webseite https://m365.cloud.microsoft/apps in einem eigenen Fe
 - Mach die Datei ausführbar:
 
 ```bash
-chmod +x Microsoft365Wrapper-1.0.0.AppImage
+chmod +x Microsoft-365-Wrapper.AppImage
 ```
 
 - Starte die App:
 
 ```bash
-./Microsoft365Wrapper-1.0.0.AppImage
+./Microsoft-365-Wrapper.AppImage
 ```
 
 ---
@@ -41,7 +41,7 @@ chmod +x Microsoft365Wrapper-1.0.0.AppImage
 - Installiere sie via Terminal:
 
 ```bash
-sudo dpkg -i microsoft365wrapper_1.0.0_amd64.deb
+sudo dpkg -i microsoft365wrapper_amd64.deb
 ```
 
 - Starte die App über das Anwendungsmenü oder mit:
