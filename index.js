@@ -40,18 +40,6 @@ function createWindow() {
       click: () => {
         if (win.webContents.canGoForward()) win.webContents.goForward();
       }
-    },
-    {
-      label: 'Entwickler',
-      submenu: [
-        {
-          label: 'Toggle DevTools',
-          accelerator: process.platform === 'darwin' ? 'Cmd+Alt+I' : 'Ctrl+Shift+I',
-          click: () => {
-            win.webContents.toggleDevTools();
-          }
-        }
-      ]
     }
   ]);
 
