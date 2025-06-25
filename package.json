@@ -1,0 +1,30 @@
+{
+  "name": "microsoft-programme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Wrapper für Microsoft 365 Cloud",
+  "author": {
+    "name": "Shease",
+    "email": "contact@shease.de"
+  },
+  "homepage": "https://shease.de", 
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^37.0.0",
+    "electron-builder": "^24.15.2"
+  },
+  "build": {
+    "appId": "com.microsoft.programme",
+    "productName": "Microsoft365Wrapper",
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Utility",
+      "icon": "icon.png",
+      "maintainer": "dein@email.de"
+    }
+  }
+}
