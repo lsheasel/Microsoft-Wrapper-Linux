@@ -24,13 +24,13 @@ Die App lädt die Webseite https://m365.cloud.microsoft/apps in einem eigenen Fe
 - Mach die Datei ausführbar:
 
 ```bash
-chmod +x Microsoft365Wrapper-1.0.0.AppImage
+chmod +x Microsoft-365-Wrapper-1.0.0.AppImage
 ```
 
 - Starte die App:
 
 ```bash
-./Microsoft365Wrapper-1.0.0.AppImage
+./Microsoft-365-Wrapper-1.0.0.AppImage
 ```
 
 ---
