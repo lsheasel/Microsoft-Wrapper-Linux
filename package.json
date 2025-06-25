@@ -7,7 +7,7 @@
     "name": "Shease",
     "email": "contact@shease.de"
   },
-  "homepage": "https://shease.de", 
+  "homepage": "https://shease.de",
   "license": "MIT",
   "scripts": {
     "start": "electron .",
@@ -18,13 +18,16 @@
     "electron-builder": "^24.15.2"
   },
   "build": {
-    "appId": "com.microsoft.programme",
-    "productName": "Microsoft365Wrapper",
+    "appId": "de.shease.microsoftprogramme",
+    "productName": "Microsoft 365 Wrapper",
+    "files": [
+      "**/*"
+    ],
+    "asar": true,
     "linux": {
       "target": ["AppImage", "deb"],
-      "category": "Utility",
       "icon": "icon.png",
-      "maintainer": "dein@email.de"
+      "category": "Office"
     }
   }
 }
