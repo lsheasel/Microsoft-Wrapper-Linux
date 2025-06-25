@@ -19,7 +19,7 @@
   },
   "build": {
     "appId": "de.shease.microsoftprogramme",
-    "productName": "Microsoft 365 Wrapper",
+    "productName": "Microsoft-365-Wrapper",
     "files": [
       "**/*"
     ],
