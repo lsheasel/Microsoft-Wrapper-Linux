@@ -97,9 +97,3 @@ Microsoft365Wrapper/
 ## 🙌 Beiträge willkommen!
 
 Pull Requests, Ideen und Fehlerberichte sind sehr willkommen.
-
----
-
-## Kontakt
-
-[Dein Name oder Kontaktinfo]
